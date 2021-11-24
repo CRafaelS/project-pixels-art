@@ -10,9 +10,7 @@ for (let i = 0; i < 5; i += 1) {
   }
 }
 
-let clickColor = document.getElementById('color-palette');
-
-clickColor.addEventListener('click', selectColor)
+const clickColor = document.getElementById('color-palette');
 
 function selectColor(choose) {
   const check = document.getElementsByClassName('color');
@@ -23,3 +21,19 @@ function selectColor(choose) {
   }
   choose.target.classList.add('selected');
 }
+
+clickColor.addEventListener('click', selectColor);
+
+function paint(event) {
+  const colorSelect = document.querySelector('.selected');
+  const newColor = window.getComputedStyle(colorSelect).backgroundColor;
+  const paintSquare = event.target;
+  paintSquare.style.backgroundColor = newColor;
+}
+
+pixelBox.addEventListener('click', paint);
+
+// const blackboard = document.getElementById('clear');
+// function cleanBoard() {
+// }
+// blackboard.addEventListener('click', cleanBoard);
