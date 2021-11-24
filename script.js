@@ -33,7 +33,11 @@ function paint(event) {
 
 pixelBox.addEventListener('click', paint);
 
-// const blackboard = document.getElementById('clear');
-// function cleanBoard() {
-// }
-// blackboard.addEventListener('click', cleanBoard);
+const blackboard = document.getElementById('clear-board');
+function cleanBoard() {
+  const squareSize = document.getElementsByClassName('pixel');
+  for (let i = 0; i < squareSize.length; i += 1) {
+    squareSize[i].style.backgroundColor = 'white';
+  }
+}
+blackboard.addEventListener('click', cleanBoard);
