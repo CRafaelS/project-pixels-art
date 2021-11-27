@@ -1,4 +1,6 @@
 const pixelBox = document.getElementById('pixel-board');
+const generateboard = document.getElementById('generate-board');
+const boardSize = document.getElementById('board-size');
 
 for (let i = 0; i < 5; i += 1) {
   const line = document.createElement('div');
@@ -9,6 +11,27 @@ for (let i = 0; i < 5; i += 1) {
     createBox.className = 'pixel';
   }
 }
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
+function newBoard() {
+  while (pixelBox.firstChild) {
+    pixelBox.removeChild(pixelBox.firstChild);
+  }
+  const number = boardSize.value;
+  if (number === '') {
+    alert('Board inválido!');
+  }
+  for (let i = 0; i < number; i += 1) {
+    console.log(number);
+    const line = document.createElement('div');
+    pixelBox.appendChild(line);
+    for (let j = 0; j < number; j += 1) {
+      const createBox = document.createElement('div');
+      pixelBox.appendChild(createBox);
+      createBox.className = 'pixel';
+    }
+  }
+}
+generateboard.addEventListener('click', newBoard);
 
 const clickColor = document.getElementById('color-palette');
 
