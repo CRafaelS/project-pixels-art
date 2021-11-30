@@ -11,26 +11,54 @@ for (let i = 0; i < 5; i += 1) {
     createBox.className = 'pixel';
   }
 }
+
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
+
 function newBoard() {
   while (pixelBox.firstChild) {
     pixelBox.removeChild(pixelBox.firstChild);
   }
-  const number = boardSize.value;
+  let number = boardSize.value;
   if (number === '') {
     alert('Board inválido!');
-  }
-  for (let i = 0; i < number; i += 1) {
-    console.log(number);
-    const line = document.createElement('div');
-    pixelBox.appendChild(line);
-    for (let j = 0; j < number; j += 1) {
-      const createBox = document.createElement('div');
-      pixelBox.appendChild(createBox);
-      createBox.className = 'pixel';
+  } else if (number <= 5) {
+    number = 5;
+    for (let i = 0; i < number; i += 1) {
+      console.log(number);
+      const line = document.createElement('div');
+      pixelBox.appendChild(line);
+      for (let j = 0; j < number; j += 1) {
+        const createBox = document.createElement('div');
+        pixelBox.appendChild(createBox);
+        createBox.className = 'pixel';
+      }
+    }
+  } else if (number >= 50) {
+    number = 50;
+    for (let i = 0; i < number; i += 1) {
+      console.log(number);
+      const line = document.createElement('div');
+      pixelBox.appendChild(line);
+      for (let j = 0; j < number; j += 1) {
+        const createBox = document.createElement('div');
+        pixelBox.appendChild(createBox);
+        createBox.className = 'pixel';
+      }
+    }
+  } else {
+    for (let i = 0; i < number; i += 1) {
+      console.log(number);
+      const line = document.createElement('div');
+      pixelBox.appendChild(line);
+      for (let j = 0; j < number; j += 1) {
+        const createBox = document.createElement('div');
+        pixelBox.appendChild(createBox);
+        createBox.className = 'pixel';
+      }
     }
   }
 }
+
 generateboard.addEventListener('click', newBoard);
 
 const clickColor = document.getElementById('color-palette');
@@ -64,3 +92,5 @@ function cleanBoard() {
   }
 }
 blackboard.addEventListener('click', cleanBoard);
+
+window.onload
