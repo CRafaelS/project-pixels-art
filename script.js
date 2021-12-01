@@ -93,4 +93,15 @@ function cleanBoard() {
 }
 blackboard.addEventListener('click', cleanBoard);
 
-window.onload
+// https://stackoverflow.com/questions/14323082/why-doesnt-backgroundcolor-rgba-b-c-work
+
+function generateColor() {
+  const red = document.querySelector('.red');
+  const blue = document.querySelector('.blue');
+  const green = document.querySelector('.green');
+
+  red.style.backgroundColor = 'rgb('+(Math.random() * 255)+', '+(Math.random() * 255)+', '+(Math.random() * 255)+')';
+  blue.style.backgroundColor = 'rgb('+(Math.random() * 255)+', '+(Math.random() * 255)+', '+(Math.random() * 255)+')';
+  green.style.backgroundColor = 'rgb('+(Math.random() * 255)+', '+(Math.random() * 255)+', '+(Math.random() * 255)+')';
+}
+window.onload = generateColor;
